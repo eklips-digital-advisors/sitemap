@@ -17,11 +17,15 @@ const realpath = (value: string) => (fs.existsSync(value) ? fs.realpathSync(valu
 
 const isCLI = process.argv.some((value) => realpath(value).endsWith(path.join('payload', 'bin.js')))
 const isProduction = process.env.NODE_ENV === 'production'
+const isBuild =
+  process.env.NEXT_PHASE === 'phase-production-build' || process.env.npm_lifecycle_event === 'build'
 
-const cloudflare =
-  isCLI || !isProduction
-    ? await getCloudflareContextFromWrangler()
-    : await getCloudflareContext({ async: true })
+const cloudflare: CloudflareContext =
+  isBuild
+    ? ({ env: { D1: undefined } } as CloudflareContext)
+    : isCLI || !isProduction
+      ? await getCloudflareContextFromWrangler()
+      : await getCloudflareContext({ async: true })
 
 export default buildConfig({
   admin: {
