@@ -7,6 +7,8 @@ import type { SitemapItem } from '@/lib/sitemaps/types'
 
 import './styles.css'
 
+export const dynamic = 'force-dynamic'
+
 type Params = {
   token: string
 }
