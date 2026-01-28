@@ -1,0 +1,39 @@
+@import '~@payloadcms/ui/scss';
+
+.sitemap-share {
+  border: 1px solid var(--theme-elevation-200);
+  border-radius: var(--border-radius-s);
+  display: grid;
+  gap: var(--base);
+  padding: var(--base);
+}
+
+.sitemap-share__section {
+  display: grid;
+  gap: calc(var(--base) * 0.5);
+}
+
+.sitemap-share__title {
+  font-weight: 600;
+}
+
+.sitemap-share__hint {
+  color: var(--theme-elevation-500);
+}
+
+.sitemap-share__row {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--base) * 0.5);
+}
+
+.sitemap-share__input {
+  background: var(--theme-input-bg);
+  border: 1px solid var(--theme-elevation-300);
+  border-radius: var(--border-radius-s);
+  color: var(--theme-text);
+  flex: 1 1 240px;
+  font-size: 0.9rem;
+  padding: calc(var(--base) * 0.35) calc(var(--base) * 0.45);
+}
